@@ -30,10 +30,10 @@ suite('Functional Tests', function () {
     test('Test GET /hello with your name', function (done) {
       chai
         .request(server)
-        .get('/hello?name=amir')
+        .get('/hello?name=John')
         .end(function (err, res) {
-          assert.fail(res.status, 200);
-          assert.fail(res.text, `hello ${res.query.name}`);
+          assert.equal(res.status, 200);
+          assert.equal(res.text, `hello John`);
           done();
         });
     });
